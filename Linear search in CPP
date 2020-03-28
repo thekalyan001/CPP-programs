@@ -1,3 +1,5 @@
+//Linear searvh program in the form of c++ code
+
 #include<bits/stdc++.h>
 using namespace std;
 int fun(int v,int a[100])
