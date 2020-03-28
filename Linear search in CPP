@@ -14,20 +14,17 @@ int fun(int v,int a[100])
 	cout<<"enter the nuber for find\n";
 	cin>>m;
 	for(int i=0;i<v;i++)
-{
+    {
 	if(a[i]==m)       //if this is satisfy then it will return the location of the number
 	{
 	return i;
-	}
-	
-
-}
-return -1;
-
+	}	
+    }
+return -1;		//if theis is not satisfy then it will return -1 value
 }
 int main()
 {
-	int n,a[100],m;
+	int n,a[100];
 	cin>>n;         //taking the numer fo the value inside the array
-	cout<<"the number is present at"<<fun(n,a)<<endl;       //calling the function for value
+	cout<<"The number is present at"<<fun(n,a)<<endl;       //calling the function for value
 }
