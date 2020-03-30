@@ -1,0 +1,77 @@
+//All inheritance structure
+//single inheritance-one parent class with one drived class
+class A
+{
+	
+};
+class : public A
+{ 
+	
+};
+
+//-------------------------------------------------------
+//Multilevel inheritance-class having property of more then one parent class
+class A
+{
+	
+};
+class B: public A
+{
+	
+};
+class C : public B
+{
+	//this class has property of both the class	A and B
+};
+
+//--------------------------------------------------------
+//Multiple inheritance- class inherited from more then one class
+class A1
+{
+	
+};
+class A2
+{
+	
+};
+class B : public A1,public A2
+{
+	
+};
+
+//-------------------------------------------------------
+//Hierarchical inheritance(popular inh.)-base or parent class has inherited by more then one sub(child)class
+class A
+{
+	
+};
+class B1 : public A
+{
+	
+};
+class B2:publc A
+{
+	
+};
+
+//--------------------------------------------------------
+//Hybrid inheritance-(mixture of single and multiple inheritance)
+class A
+{
+	
+};
+class B : public A
+{
+	
+};
+class c
+{
+	
+};
+class D:public B,public C
+{
+	
+};
+
+
+//inheritance concept,single inheritance,multiple inheritance,multilevel inheritance, hierarchical inheritance, hybrid inheritance
