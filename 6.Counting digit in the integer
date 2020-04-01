@@ -1,0 +1,71 @@
+/*1.
+The integer entered by the user is stored in variable n. Then the while loop is iterated until the test expression n != 0 is evaluated to 0 (false).
+
+After first iteration, the value of n will be 345 and the count is incremented to 1.
+After second iteration, the value of n will be 34 and the count is incremented to 2.
+After third iteration, the value of n will be 3 and the count is incremented to 3.
+At the start of fourth iteration, the value of n will be 0 and the loop is terminated
+*/
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+int countDigit(long long n) 
+{ 
+    int count = 0; 
+    while (n != 0)
+    { 
+        n = n / 10; 
+        ++count; 
+    } 
+    return count; 
+} 
+
+int main(void) 
+{ 
+    long long n = 345289467; 
+    cout << "Number of digits : "
+         << countDigit(n); 
+    return 0; 
+} 
+
+/*
+2.
+some other design for code
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+int countDigit(long long n) 
+{ 
+    if (n == 0) 
+        return 0; 
+    return 1 + countDigit(n / 10); 
+} 
+ 
+int main(void) 
+{ 
+    long long n = 345289467; 
+    cout << "Number of digits :" << countDigit(n); 
+    return 0; 
+} 
+
+
+
+
+
+3.
+#include <math.h> 
+#include <stdio.h> 
+  
+int countDigit(long long n) 
+{ 
+    return floor(log10(n) + 1); 
+} 
+
+int main(void) 
+{ 
+    long long n = 345289467; 
+    printf("Number of digits : %d", 
+           countDigit(n)); 
+    return 0; 
+}
+/*
