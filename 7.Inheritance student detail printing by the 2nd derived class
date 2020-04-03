@@ -1,0 +1,113 @@
+/*In theis program the detail of the student such as student name,age,address is given inside the Student class name whereas the Scholl name 
+given inside the School class name and the college detail of the studet such as University name is given inside the University class name
+and Here is the Intresting situation in which we have to create only one object of the class and that object will be the clasas of second 
+derived class here that is University --(we will create object of university only and in which we will give the intire detail of the 
+student */
+//The Kalyan Mishra
+#include<bits/stdc++.h>
+#include<string.h>
+using namespace std;
+class Student
+{
+	private:
+	char *name;
+	int age;
+	string address;   //address2
+	public:
+	Student()
+	{
+	
+	 name=new char[0];    
+	}	
+	Student(char *s,int a,string addr)
+	{
+		int u=strlen(s);
+	name=new char[u+1];	      //dynamically taking the character string character to the data member
+	strcpy(name,s);           //copying the value of the character into the datamember
+	age=a;                     //assigning the value of the constructor to the datamember age
+	address=addr;
+	
+	}
+	virtual void display()
+	{
+		cout<<"Student name= "<<name;
+		cout<<"\nStudent age= "<<age;
+		cout<<"\nStudent address= "<<address;
+	}
+	
+	~Student();      //destructor created which will destroy the dynamically allocated memoey here by name
+};
+Student::~Student()  //releasing the memory
+{
+	delete[]name;
+}
+class School : public Student //inherited class School publically
+{
+ private:
+ 	char *Sname;
+ 	public:
+ 		School()
+ 		{
+ 		
+ 		Sname=new char[0];	
+		}
+     //assigning the datamemer of the class into the own data with inherited from it self and with the class Student
+		 School(char *o,int p,string q,char *t):Student(o,p,q)   
+     
+		 {
+		 
+		 int k=strlen(t);
+		 	Sname=new char[k+1];
+		 	strcpy(Sname,t);
+		 }
+		 virtual void display()
+		 {
+		 	Student::display();   //by calling the mem-function display of the class School the display of the class Student simultaneuously
+		 	cout<<"\nSchool name= "<<Sname;
+		 	
+		 }
+		 ~School();
+ 	
+};
+School::~School()   //destructor of the 
+{
+	delete[]Sname;
+}
+class University : public School
+{
+	private:
+		char *Uname;
+		public:
+			University()
+			{
+				Uname=new char[0];
+			
+      //from here the necessry value for the class School will be taken from the constructor of the Univerity class
+			University(char *e,int f,string g,char *h,char *m):School(e,f,g,h)  
+			{
+			
+			int	u=strlen(m);
+				Uname=new char[u+1];
+				strcpy(Uname,m);
+			}
+			void display()
+			{
+				School::display();
+				cout<<"\nUniversity name= "<<Uname;
+			}
+			~University();
+};
+University::~University()   //destructor of the University
+{
+	delete[]Uname;
+}
+int main()
+{
+//providing the intire value of the all class from the one object
+	University o1("kalyan mishra",63,"jalandhar_(144411)","pole star","Lovely Professional University");
+	cout<<"\nTHE Detail Of Student Is Below:\n";
+	o1.display();
+	return 0;
+	
+}
+//creating the object of the  second derived class and providing all the value of other class from the one object
