@@ -12,19 +12,19 @@ class Student
 	private:
 	char *name;
 	int age;
-	string address;   //address2
+	string address;//address2
 	public:
 	Student()
 	{
 	
-	 name=new char[0];    
+	 name=new char[0];
 	}	
 	Student(char *s,int a,string addr)
 	{
 		int u=strlen(s);
-	name=new char[u+1];	      //dynamically taking the character string character to the data member
-	strcpy(name,s);           //copying the value of the character into the datamember
-	age=a;                     //assigning the value of the constructor to the datamember age
+	name=new char[u+1];	
+	strcpy(name,s);
+	age=a;
 	address=addr;
 	
 	}
@@ -35,13 +35,13 @@ class Student
 		cout<<"\nStudent address= "<<address;
 	}
 	
-	~Student();      //destructor created which will destroy the dynamically allocated memoey here by name
+	~Student();
 };
-Student::~Student()  //releasing the memory
+Student::~Student()
 {
 	delete[]name;
 }
-class School : public Student //inherited class School publically
+class School : public Student
 {
  private:
  	char *Sname;
@@ -51,9 +51,7 @@ class School : public Student //inherited class School publically
  		
  		Sname=new char[0];	
 		}
-     //assigning the datamemer of the class into the own data with inherited from it self and with the class Student
-		 School(char *o,int p,string q,char *t):Student(o,p,q)   
-     
+		 School(char *o,int p,string q,char *t):Student(o,p,q)
 		 {
 		 
 		 int k=strlen(t);
@@ -62,14 +60,14 @@ class School : public Student //inherited class School publically
 		 }
 		 virtual void display()
 		 {
-		 	Student::display();   //by calling the mem-function display of the class School the display of the class Student simultaneuously
+		 	Student::display();
 		 	cout<<"\nSchool name= "<<Sname;
 		 	
 		 }
 		 ~School();
  	
 };
-School::~School()   //destructor of the 
+School::~School()
 {
 	delete[]Sname;
 }
@@ -81,9 +79,8 @@ class University : public School
 			University()
 			{
 				Uname=new char[0];
-			
-      //from here the necessry value for the class School will be taken from the constructor of the Univerity class
-			University(char *e,int f,string g,char *h,char *m):School(e,f,g,h)  
+			}
+			University(char *e,int f,string g,char *h,char *m):School(e,f,g,h)
 			{
 			
 			int	u=strlen(m);
@@ -97,13 +94,12 @@ class University : public School
 			}
 			~University();
 };
-University::~University()   //destructor of the University
+University::~University()
 {
 	delete[]Uname;
 }
 int main()
 {
-//providing the intire value of the all class from the one object
 	University o1("kalyan mishra",63,"jalandhar_(144411)","pole star","Lovely Professional University");
 	cout<<"\nTHE Detail Of Student Is Below:\n";
 	o1.display();
