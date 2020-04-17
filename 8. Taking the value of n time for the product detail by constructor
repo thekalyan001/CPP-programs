@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+class ABC{
+	int a;
+	float b;
+	string name;
+	public:
+	void get(string n,int p,float q)
+	{  name=n; a=p; b=q;	}
+		void show()
+		{
+			cout<<"Name: "<<name<<"\ncode= "<<a<<"\n"<<"price= "<<b;
+	    }	
+};
+int main()
+{
+int p;
+cout<<"Enter the time you want to enter\n";
+cin>>p;
+	ABC *ob=new ABC[p];
+	ABC *g=ob;
+	int x,i;
+	float y;
+	string s;
+	for(i=0;i<p;i++)
+	{
+		cout<<"Enter the name code and price for the item:"<<i+1<<"\n";
+		cin>>s>>x>>y;
+		ob->get(s,x,y);//we can (*ob).get(x,y)
+		ob++;
+	}
+	for(i=0;i<p;i++)
+	{
+		cout<<"\n---------------------\n";
+		cout<<"\nItem= "<<i+1<<"\n";
+		cout<<"\n---------------------\n";
+		g->show();
+		g++;
+	}
+	return 0;
+}
+
