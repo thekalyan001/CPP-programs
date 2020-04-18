@@ -1,0 +1,104 @@
+#include<iostream>
+#include<stdlib.h>
+#include<Windows.h>
+#include<iomanip>
+using namespace std;
+class sample
+{
+	
+	public:
+	int a,b;
+	float f1,f2;
+	char c1,c2;
+	string s1,s2;
+	template<class T>
+	void swap(T &a,  T&b);
+	void menu();	
+};
+
+template<class T>
+void sample::swap(T &a, T &b)
+{
+	T temp;
+	temp=a;
+	a=b;
+	b=temp;
+}
+void sample::menu()
+{
+	
+	{//system("Color 1A");
+	HANDLE hconsole= GetStdHandle(STD_OUTPUT_HANDLE);
+	{
+		SetConsoleTextAttribute(hconsole,3);//change the number
+		{
+	cout<<setw(80)<<"Welcome to the parametrised- template programmig\n";
+}
+}
+}
+	cout<<"i->integer swapping\n";
+	cout<<"f->floating point number swappig\n";
+	cout<<"c->character type number swapping\n";
+	cout<<"s->string type swappig\n";
+	cout<<"m->menu()\n";
+	cout<<"q->Quit\n";
+	cout<<"option, please ?\n";
+}
+int main()
+{
+sample ob;
+char code;
+ob.menu();
+	while((code= cin.get()) !='q')
+	{
+		switch (code)
+		{
+			case 'i':
+				cout<<"Enter any two integer\n";
+				cin>>ob.a>>ob.b;
+				cout<<"\nBefore swapping\n";
+				cout<<"a= "<<ob.a<<"\tb= "<<ob.b;
+				ob.swap(ob.a,ob.b);
+				cout<<"\nAfter swapping\n";
+				cout<<"a= "<<ob.a<<"\tb= "<<ob.b<<endl;
+				break;
+			
+		    case 'f':
+				cout<<"Enter any two floating point number\n";
+				cin>>ob.f1>>ob.f2;
+				cout<<"\nBefore swapping\n";
+				cout<<"f1= "<<ob.f1<<"\tf2= "<<ob.f2;
+				ob.swap(ob.f1,ob.f2);
+				cout<<"\nAfter swapping\n";
+				cout<<"f1= "<<ob.f1<<"\tf2= "<<ob.f2<<endl;
+				break;
+			
+			case 'c':
+				cout<<"Enter any two character\n";
+				cin>>ob.c1>>ob.c2;
+				cout<<"\nBefore swapping\n";
+				cout<<"c1= "<<ob.c1<<"\tc2= "<<ob.c2;
+				ob.swap(ob.c1,ob.c2);
+				cout<<"\nAfter swapping\n";
+				cout<<"c1= "<<ob.c1<<"\tc2= "<<ob.c2<<endl;
+				break;
+				
+			case 's':
+				cout<<"Enter any two string\n";
+				cin>>ob.s1>>ob.s2;
+				cout<<"\nBefore swapping\n";
+				cout<<"s1= "<<ob.s1<<"\ts2= "<<ob.s2;
+				ob.swap(ob.s1,ob.s2);
+				cout<<"\nAfter swapping\n";
+				cout<<"s1= "<<ob.s1<<"\ts2= "<<ob.s2<<endl;
+				break;
+				
+			case 'm':
+				ob.menu();
+				break;
+				//end of switch statement
+		}
+		//end of while
+	}
+	return 0;
+}
