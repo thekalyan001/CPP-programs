@@ -1,0 +1,14 @@
+#include<iostream>
+#include<windows.h>
+#include<stdlib.h>
+using namespace std;
+int main()
+{
+	HANDLE hconsole= GetStdHandle(STD_OUTPUT_HANDLE);
+	for(int i=0;i<10;i++)
+	{
+		SetConsoleTextAttribute(hconsole,i);
+		cout<<i<<"Hello World!\n";
+	}
+	return 0;
+}
