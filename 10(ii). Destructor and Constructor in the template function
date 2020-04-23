@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+template<class T>
+class sample
+{
+private:
+T n;
+public:
+sample(T u):n(u){};
+	~sample();
+	void display();
+};
+//We can also have declaration of the constructor by scope resolution
+template<class T>
+sample<T>::~sample(){
+};
+template<class T>
+void sample<T>::display()
+{
+	cout<<"The value of the n: "<<n<<endl;
+}
+int main()
+{
+	sample <int>ob(10);
+   cout<<"The integer value is\n: ";
+	ob.display();
+	sample<double>ob1(34.5);
+	cout<<"The value of the double is\n: ";
+	ob1.display();
+	return 0;
+	
+}
