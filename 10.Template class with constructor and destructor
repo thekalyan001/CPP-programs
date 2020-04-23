@@ -1,0 +1,56 @@
+/*  Template class with constructor and destructor with mmber function which has pointer also involved Template 
+    function is generic function(means it can contain Any type data types like void) which used to minimise the 
+    function in class it also used like generic function template. mainly f/n template is used To minimise the code  */
+
+#include<iostream>
+using namespace std;
+template<class p>
+class A
+{
+	p m,n;
+public:
+A()     //Default constructor
+{ m=n=0; }	
+A(p u, p v)   //Parametrised cinstructor
+{
+	m=u;
+	n=v;
+}
+~A();     //Destrucotor
+void sum();
+};
+template<class p>
+void A<p>::sum()
+{
+	p a;
+	a=m+n;
+cout<<"sum is "<<a<<endl;
+}
+template<class p>
+A<p>::~A()
+{
+	cout<<"\ndestructor clleed\n";
+}
+int main()
+{
+	int p,q;
+	string h,m;
+	cout<<"Enter the two integer\n";
+	cin>>p>>q;
+	cout<<"Enter the two string\n ";
+	cin>>h>>m;
+A<int>ob(p,q);
+A<string>ob1(h,m);
+
+//If we not want to create pointer then we can also do this
+//ob.sum();
+//ob1.sum();
+A<int>*l;    //Type of pointer beacuse it point same type of datatypes
+l=&ob;
+l->sum(); 
+
+A<string>*s;  //Pointer declaration of string type
+s=&ob1;
+(*s).sum();
+return 0;
+}
