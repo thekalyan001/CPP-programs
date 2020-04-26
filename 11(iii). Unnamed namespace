@@ -1,0 +1,95 @@
+//Program for illustrate the Unnamed namespace
+#include<iostream>
+using namespace std;
+namespace
+{
+	int a=19;
+	namespace
+	{
+		int b=20;
+		namespace
+		{
+			int c=30;
+			namespace
+			{
+				int d=40;
+			}
+		}
+	}
+}
+void display()
+{
+cout<<"namespace1: "<<a<<endl;
+cout<<"namespace2: "<<b<<endl;
+cout<<"namespace3: "<<c<<endl;	
+cout<<"namespace4: "<<d<<endl;
+}
+int main()
+{
+	display();
+	return 0;
+}
+
+/*   //for better result please remove the /* and 8? and try yourself
+#include<iostream>
+using namespace std;
+namespace
+{
+	int a=10;
+	
+}
+namespace
+{
+	int b=20;
+}
+namespace
+{
+	int c=40;
+}
+void display()
+{
+	cout<<"namespace1: "<<a<<endl;
+}
+void dsplay()
+{
+	cout<<"namespace2: "<<b<<endl;
+}
+void diapl()
+{
+	cout<<"Namespace3: "<<c<<endl;
+}
+int main()
+{
+	display();
+	dsplay();
+	diapl();
+	return 0;
+}
+*/
+
+//explicit qualification
+/* remove this  /* and */ for compile
+#include<iostream>
+using namespace std;
+int i=9;
+namespace A
+{
+	int a=22,b=44,c=55;
+	namespace B
+	{
+		int i=10,j=20,k=30;
+	}
+}
+int  main()
+{
+cout<<A::a++;
+cout<<"\n";
+cout<<A::B::i++;
+cout<<"\n";
+cout<<::i++;  //global	
+return 0;
+}
+
+
+//we are invoking the global namespace using scope resolution without preciding qualifier
+*/
