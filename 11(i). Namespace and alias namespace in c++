@@ -1,0 +1,57 @@
+//Namespace in c++
+#include<iostream>
+using namespace std;
+namespace  A
+{
+	int i=10;
+}
+namespace B
+{
+	int i=200;
+}
+namespace  A
+{
+	void function();
+}
+void A::function()
+{
+	cout<<"++A+i: "<<++A::i<<endl;
+}
+namespace B
+{
+	int j=300;
+	void func();
+}
+void B::func()
+{
+	cout<<"++B::i = "<<++B::i<<endl;
+	cout<<"B::j = "<<B::j<<endl;
+	
+}
+int main()
+{
+A::function();
+B::func();
+return 0;	
+}
+
+/* //for compiling remove this /* and */
+//Alias(other name)of Namespace
+
+#include<iostream>
+using namespace std;
+namespace Hello_world
+{
+string s="hello ";
+string b="world ";
+}
+namespace hw=Hello_world;
+
+int main()
+{
+	cout<<"1st:  "<<hw::s<<endl;
+	cout<<"2nd: "<<hw::b<<endl;
+	return 0; 
+}
+
+*/
