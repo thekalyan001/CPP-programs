@@ -1,0 +1,31 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int a[10]={1,2,3,4,5,6,7,8,9,10};
+int main()
+{
+	string str;
+	int sum=0;
+	int n;
+			cout<<"Please set the maximum number under 15 in the google cloud\nFrom where memory out warning will be shown\n";
+			cin>>n;
+	try{
+		for(int i=0;i<=15;i++){
+			if(i>=n)
+			throw str;
+			else
+			{
+				cout<<"element["<<i<<"]= "<<a[i];
+				cout<<endl;
+				sum+=a[i];
+			}
+		}
+	}
+	catch (string str)
+	{
+		cout<<"memory out of the string"<<endl;
+	}
+	cout<<"sum= "<<sum<<endl;
+	return 0;
+	
+}
