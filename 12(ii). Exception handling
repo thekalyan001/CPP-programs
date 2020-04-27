@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+template<class T>
+class abc
+{
+public:
+void display(T x,T y);	
+};
+template<class T>
+void abc<T>::display(T x, T y)
+{
+	try
+	{
+		if(y==0)
+		throw y;
+		else
+		cout<<"x/y= "<<(double)x/(double)y<<endl;
+	}
+	catch(T)
+	{
+		cout<<"Exception occoured\n";
+		throw;
+	}
+}
+int main(){
+	abc<int>ob1;
+	abc<double>ob2;
+	
+	int a,b;
+	double x,y;
+   cout<<"Enter the two integer number\n";
+   cin>>a>>b;
+   
+   cout<<"Enter the two floating number\n";
+   cin>>x>>y;
+	try{
+		ob1.display(a,b);
+	}
+	catch(int)
+	{
+		cout<<"Exception occoured in main or you entered the 0 statement\n";
+	}
+	cout<<"now the second number is going to start\n";
+	try
+	{
+		ob2.display(x,y);
+		
+	}
+	catch(double)
+	{
+		cout<<"Exception occoured in the second main\n";
+	}
+	return 0;
+}
