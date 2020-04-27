@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+namespace a
+{
+	//int h=10;
+	void sum(int l,int k);
+}
+
+namespace b
+{
+	//int u=10;
+	void multiply(int g,int h);
+	
+}
+void a::sum(int l, int k)
+{
+	int t;
+	//t=h+b::u;
+	t=l+k;
+	cout<<"sum= "<<t;
+}
+void b::multiply(int g, int h)
+{
+	int p;
+	//p=(a::h)*u;
+	p=g*h;
+	cout<<"\nmultiply= "<<p;
+}
+int main()
+{
+	double a,b;
+	cout<<"Enter the two number\n";
+	cin>>a>>b;
+	a::sum(a,b);
+	b::multiply(a,b);
+	return 0;
+}
