@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+namespace a
+{
+	template<class T>
+	void sum(T l, T k)
+{
+	T t;
+	//t=h+b::u;
+	t=l+k;
+	cout<<"sum= "<<t;
+}
+template<class T>
+	void multiply(T g,T h)
+{
+	T p;
+	p=g*h;
+	cout<<"\nmultiply= "<<p;
+
+}
+}
+
+int main()
+{
+	double a,b;
+	cout<<"Enter the two number\n";
+	cin>>a>>b;
+	a::sum(a,b);
+	a::multiply(a,b);
+	return 0;
+}
