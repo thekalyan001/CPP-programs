@@ -24,3 +24,10 @@ int main()
     Complex c3 = c1 + c2; // An example call to "operator+" 
     c3.print(); 
 } 
+
+
+
+//whether you can remove & or not while passing argumetns depends on whether the object can be copied.
+//For the Complex objects, if you remove &, a new copy of the orginal objects are given to the parameters.
+//If you keep &, then its the same object. ostream object cannot be copied, so you have to use &
+
