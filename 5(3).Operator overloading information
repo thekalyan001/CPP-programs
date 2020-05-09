@@ -1,0 +1,150 @@
+//Operator Overloading Hackerrank
+/*Sample Input
+
+3+i4
+5+i6
+Sample Output
+
+8+i10
+*/
+------------------------------------------------------------------------------
+#include<iostream>
+
+using namespace std;
+
+class Complex
+{
+public:
+    int a,b;
+    void input(string s)
+    {
+        int v1=0;
+        int i=0;
+        while(s[i]!='+')
+        {
+            v1=v1*10+s[i]-'0';
+            i++;
+        }
+        while(s[i]==' ' || s[i]=='+'||s[i]=='i')
+        {
+            i++;
+        }
+        int v2=0;
+        while(i<s.length())
+        {
+            v2=v2*10+s[i]-'0';
+            i++;
+        }
+        a=v1;
+        b=v2;
+    }
+};
+Complex operator+(Complex &x,Complex &y)
+{
+Complex temp;
+temp.a=x.a+y.a;
+temp.b=x.b+y.b;
+return(temp);
+}
+ostream& operator<<(ostream& cout,Complex  &z)
+{
+  cout<<z.a<<"+i"<<z.b;
+  return cout;
+}
+
+
+int main()
+{
+    Complex x,y;
+    string s1,s2;
+    cin>>s1;
+    cin>>s2;
+    x.input(s1);
+    y.input(s2);
+    Complex z=x+y;
+    cout<<z<<endl;
+}
+
+--------------------------------------------------------------------------------------
+
+
+
+
+
+********************************************************************************************************
+/*ostream& operator<<(ostream& os, const Complex& c) {
+    return os << c.a << (c.b > 0 ? '+' : '-') << 'i' << c.b;
+}
+
+Complex operator+(const Complex& a, const Complex& b) { 
+    return { a.a + b.a, a.b + b.b };
+}
+*/
+
+**********************************************************************************************************
+/*
+So the basic idea is that there is a function called operator<< with the following signature:
+
+std::ostream& operator<<(std::ostream& os, const T& obj)
+
+So it takes a std::ostream object by reference as well as a constant reference to another object (which is the object to be output) 
+and it outputs a std::ostream by reference.
+
+The goal is to make it easier to print your objects. In this case, we have a complex number class.
+The class, by default, won't print anything useful if you use the insertion operator (operator<<) on a member of the class. 
+But when we overload it, we can force the value to print exactly like we want.
+
+If we don't overload the insertion operator, you'd have to call some other print function that you provide with your class. 
+The benefit, then, is that your class acts like a basic type and you can print just as easily as if you were printing an integer.
+
+
+
+Complex operator+(const Complex & X, const Complex & Y) {
+    Complex Z {X.a + Y.a, X.b + Y.b};
+    return Z;
+}
+
+ostream & operator<< (ostream & out, const Complex & X) {
+    if (X.b < 0) {
+        out << X.a << "-i" << -X.b;
+    } else if(X.b > 0) {
+        out << X.a << "+i" << X.b;
+    } else {
+        out << X.a;
+    }
+    return out;
+}
+*/
+
+********************************************************************************************************
+
+
+
+/*
+
+//Overload +
+//To handle comand 'Complex z=x+y;' from the main code
+//pass complex object x and complex object y because we need their x.a, x.b, y.a, and y.b
+Complex operator + (Complex &x, Complex &y) {
+    //Create new complex number z to hold answer
+    Complex z;
+
+    //Remember every Complex variable, holds two integers: object.a and object.b
+
+    //add constants, also known as real numbers
+    z.a = x.a + y.a;
+    //add coefficients of the imaginary numbers
+    z.b = x.b + y.b;
+    //Return z which contains z.a and z.b where a = real and b = imaginary
+    return z;
+}
+
+//Overload <<
+ostream& operator << (ostream &cout, Complex &z){
+    //We need the ostream cout and the complex variable z
+    //We overload 'cout << ' by the command below.
+    cout << z.a << "+i" <<z.b;
+    //We return cout to tell the main code to use this new cout
+    return cout; 
+}
+*/
